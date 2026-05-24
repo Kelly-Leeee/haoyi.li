@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kelly Leeee</title>
+    <script>
+      (function () {
+        var segment = window.location.pathname + window.location.search + window.location.hash;
+        sessionStorage.setItem('spa-path', segment);
+        window.location.replace('/');
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
+
