@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
 
-export default defineConfig({
-  base: '/haoyi.li/',
-})
+export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? '/haoyi.li/' : '/',
+}))
