@@ -10,17 +10,16 @@
     />
     <style>
       :root {
-        --bg: #0a0f1f;
-        --bg-2: #10192f;
-        --panel: rgba(17, 24, 39, 0.72);
-        --panel-2: rgba(15, 23, 42, 0.88);
+        --bg: #07111f;
+        --bg-2: #0d1728;
+        --panel: rgba(15, 23, 42, 0.78);
+        --panel-2: rgba(12, 18, 32, 0.9);
         --border: rgba(148, 163, 184, 0.16);
-        --text: #ecf4ff;
-        --muted: #aeb9cb;
-        --accent: #8be9fd;
-        --accent-2: #f9a8d4;
-        --accent-3: #c4b5fd;
-        --shadow: 0 28px 90px rgba(0, 0, 0, 0.35);
+        --text: #eef4ff;
+        --muted: #aab7c9;
+        --accent: #7dd3fc;
+        --accent-2: #c4b5fd;
+        --shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
       }
 
       * { box-sizing: border-box; }
@@ -28,22 +27,22 @@
       body {
         margin: 0;
         color: var(--text);
-        background:
-          radial-gradient(circle at 18% 20%, rgba(139, 233, 253, 0.13), transparent 26%),
-          radial-gradient(circle at 85% 10%, rgba(196, 181, 253, 0.13), transparent 24%),
-          radial-gradient(circle at 70% 72%, rgba(249, 168, 212, 0.11), transparent 22%),
-          linear-gradient(180deg, #050816 0%, var(--bg) 46%, #09111f 100%);
         font-family: Inter, "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        background:
+          radial-gradient(circle at 15% 20%, rgba(125, 211, 252, 0.12), transparent 26%),
+          radial-gradient(circle at 85% 14%, rgba(196, 181, 253, 0.12), transparent 24%),
+          linear-gradient(180deg, #050814 0%, var(--bg) 45%, #09111e 100%);
       }
 
       a { color: inherit; }
+
       .wrap {
-        width: min(1140px, calc(100% - 32px));
+        width: min(1120px, calc(100% - 32px));
         margin: 0 auto;
-        padding: 26px 0 60px;
+        padding: 28px 0 64px;
       }
 
-      .topbar {
+      .header {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -55,8 +54,8 @@
 
       .nav {
         display: flex;
-        flex-wrap: wrap;
         gap: 14px;
+        flex-wrap: wrap;
       }
 
       .nav a {
@@ -65,381 +64,292 @@
       }
 
       .hero {
-        position: relative;
-        overflow: hidden;
-        padding: 36px;
+        padding: 34px;
         border: 1px solid var(--border);
         border-radius: 30px;
-        background: linear-gradient(180deg, rgba(15, 23, 42, 0.82), rgba(10, 15, 31, 0.86));
+        background: linear-gradient(180deg, rgba(15, 23, 42, 0.84), rgba(10, 16, 29, 0.92));
         box-shadow: var(--shadow);
-      }
-
-      .hero::after {
-        content: "";
-        position: absolute;
-        inset: auto -10% -30% auto;
-        width: 320px;
-        height: 320px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(139, 233, 253, 0.18), transparent 68%);
-        pointer-events: none;
       }
 
       .eyebrow {
         display: inline-flex;
         align-items: center;
         gap: 10px;
+        font-size: 12px;
         letter-spacing: 0.22em;
         text-transform: uppercase;
-        font-size: 12px;
         color: var(--accent);
       }
 
       .eyebrow::before {
         content: "";
-        width: 11px;
-        height: 11px;
+        width: 10px;
+        height: 10px;
         border-radius: 50%;
-        background: linear-gradient(135deg, var(--accent), var(--accent-3));
-        box-shadow: 0 0 22px rgba(139, 233, 253, 0.9);
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        box-shadow: 0 0 18px rgba(125, 211, 252, 0.85);
       }
 
       h1 {
-        margin: 14px 0 10px;
-        font-size: clamp(44px, 8vw, 80px);
-        line-height: 0.94;
+        margin: 14px 0 8px;
+        font-size: clamp(42px, 7vw, 74px);
+        line-height: 0.96;
         letter-spacing: -0.05em;
       }
 
-      .subtitle {
-        max-width: 820px;
+      .intro {
         margin: 0;
-        font-size: 18px;
-        line-height: 1.75;
+        max-width: 860px;
         color: var(--muted);
+        font-size: 18px;
+        line-height: 1.8;
       }
 
-      .hero-grid {
+      .hero-row {
         display: grid;
-        grid-template-columns: 1.3fr 0.9fr;
+        grid-template-columns: 1.2fr 0.8fr;
         gap: 18px;
-        margin-top: 26px;
+        margin-top: 24px;
       }
 
       .panel {
         padding: 20px;
         border-radius: 22px;
         border: 1px solid var(--border);
-        background: rgba(15, 23, 42, 0.6);
+        background: rgba(255, 255, 255, 0.03);
       }
 
-      .tags {
+      .panel h2,
+      .section h2 {
+        margin: 0 0 14px;
+        font-size: 22px;
+      }
+
+      .meta {
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
       }
 
-      .tag {
-        padding: 9px 14px;
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 9px 13px;
         border-radius: 999px;
-        border: 1px solid rgba(139, 233, 253, 0.2);
+        border: 1px solid rgba(125, 211, 252, 0.18);
         background: rgba(255, 255, 255, 0.03);
         color: var(--text);
         font-size: 14px;
       }
 
-      .stats {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-      }
-
-      .stat {
-        padding: 14px;
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-      }
-
-      .stat b {
-        display: block;
-        margin-bottom: 4px;
-        font-size: 22px;
-      }
-
-      .stat span {
-        color: var(--muted);
-        font-size: 13px;
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: 18px;
+      .section {
         margin-top: 18px;
-      }
-
-      .card {
-        grid-column: span 6;
         padding: 22px;
         border-radius: 22px;
         border: 1px solid var(--border);
         background: var(--panel);
-        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
       }
 
-      .card.full { grid-column: 1 / -1; }
-      .card h2 {
+      .section + .section { margin-top: 18px; }
+
+      .content {
+        color: var(--text);
+        line-height: 1.85;
+      }
+
+      .content p {
         margin: 0 0 12px;
-        font-size: 22px;
-      }
-      .card p, .card li {
         color: var(--muted);
-        line-height: 1.75;
-      }
-      .card ul {
-        margin: 0;
-        padding-left: 18px;
       }
 
-      .timeline {
-        display: grid;
-        gap: 14px;
+      .content hr {
+        border: 0;
+        border-top: 1px solid rgba(148, 163, 184, 0.18);
+        margin: 18px 0;
       }
 
-      .item {
-        padding: 16px;
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-      }
-
-      .item .top {
-        display: flex;
-        justify-content: space-between;
-        gap: 12px;
-        flex-wrap: wrap;
-        margin-bottom: 6px;
-      }
-
-      .item .role {
-        font-weight: 700;
+      .content h3 {
+        margin: 18px 0 10px;
+        font-size: 20px;
         color: var(--text);
       }
 
-      .item .place, .item .time {
+      .content h4 {
+        margin: 18px 0 10px;
+        font-size: 18px;
+        color: var(--text);
+      }
+
+      .content ul {
+        margin: 0;
+        padding-left: 20px;
         color: var(--muted);
-        font-size: 14px;
       }
 
-      .project-grid {
+      .content li {
+        margin-bottom: 10px;
+        line-height: 1.8;
+      }
+
+      .content strong {
+        color: var(--text);
+      }
+
+      .grid-two {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 14px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
       }
 
-      .project {
+      .mini {
         padding: 18px;
         border-radius: 18px;
-        background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        min-height: 170px;
-      }
-
-      .project h3 {
-        margin: 0 0 8px;
-        font-size: 17px;
-      }
-
-      .project p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.7;
-      }
-
-      .links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 8px;
-      }
-
-      .link {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 14px;
-        border-radius: 12px;
-        text-decoration: none;
-        border: 1px solid rgba(139, 233, 253, 0.18);
         background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
       }
 
-      .small {
-        font-size: 14px;
-        color: var(--muted);
+      .mini b {
+        display: block;
+        margin-bottom: 8px;
       }
 
       .footer {
         margin-top: 18px;
-        padding: 16px 4px 0;
         text-align: center;
         color: var(--muted);
         font-size: 14px;
       }
 
       @media (max-width: 900px) {
-        .hero-grid,
-        .project-grid {
+        .hero-row,
+        .grid-two {
           grid-template-columns: 1fr;
         }
-        .card { grid-column: 1 / -1; }
-        .stats { grid-template-columns: 1fr; }
+
         .hero { padding: 24px; }
       }
     </style>
   </head>
   <body>
     <main class="wrap">
-      <div class="topbar">
+      <div class="header">
         <div>Haoyi Li</div>
         <nav class="nav">
           <a href="#about">About</a>
+          <a href="#skills">Skills</a>
           <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
-          <a href="#writing">Writing</a>
-          <a href="#contact">Contact</a>
+          <a href="#publications">Publications</a>
+          <a href="#education">Education</a>
+          <a href="#languages">Languages</a>
         </nav>
       </div>
 
-      <section class="hero">
+      <section class="hero" id="about">
         <div class="eyebrow">AI Agent Engineer at Alibaba Group</div>
-        <h1>Building practical AI systems that feel fast, useful, and trustworthy.</h1>
-        <p class="subtitle">
-          I design and ship agent workflows, LLM-powered product experiences, and retrieval systems
-          with a strong focus on reliability, usability, and real-world impact. This static page is
-          an emergency fallback that mirrors the structure of the React site so the page stays
-          visible even if the app bundle breaks.
-        </p>
+        <h1>Haoyi Li</h1>
+        <p class="intro">AI Agent Engineer at Alibaba Group</p>
 
-        <div class="hero-grid">
+        <div class="hero-row">
           <div class="panel">
-            <div class="small" style="margin-bottom: 10px;">Core strengths</div>
-            <div class="tags">
-              <span class="tag">Agent Engineering</span>
-              <span class="tag">LLM Product UX</span>
-              <span class="tag">RAG Systems</span>
-              <span class="tag">Prompt Design</span>
-              <span class="tag">Evaluation</span>
-              <span class="tag">Workflow Automation</span>
+            <h2>Profile</h2>
+            <div class="meta">
+              <span class="pill">Agent Systems</span>
+              <span class="pill">RAG</span>
+              <span class="pill">Multi-Agent Orchestration</span>
+              <span class="pill">Fine-tuning</span>
+              <span class="pill">Safety</span>
             </div>
           </div>
           <div class="panel">
-            <div class="stats">
-              <div class="stat"><b>AI</b><span>Product-focused systems</span></div>
-              <div class="stat"><b>Agent</b><span>Orchestration & tooling</span></div>
-              <div class="stat"><b>Build</b><span>From idea to demo</span></div>
+            <h2>Focus</h2>
+            <div class="content">
+              <p>
+                I build practical AI systems with a strong emphasis on reliability, execution safety,
+                and real product impact.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="grid" id="about">
-        <article class="card">
-          <h2>About</h2>
-          <p>
-            I work at the intersection of product, engineering, and applied AI. My goal is to turn
-            model capabilities into tools people can actually rely on in everyday work.
-          </p>
-          <p>
-            I care a lot about clear interfaces, predictable behavior, and reducing the friction
-            between a user’s intent and the final result.
-          </p>
-        </article>
-
-        <article class="card">
-          <h2>What I focus on</h2>
+      <section class="section" id="skills">
+        <h2>Technical Skills</h2>
+        <div class="content">
+          <p><strong>Technical Skills</strong></p>
           <ul>
-            <li>Designing agent loops that can act, check, and recover cleanly.</li>
-            <li>Building retrieval flows that are grounded and easy to debug.</li>
-            <li>Creating lightweight demos that communicate technical ideas well.</li>
-            <li>Improving reliability with evaluation, guardrails, and structured prompts.</li>
+            <li><strong>AI Engineering &amp; Core:</strong> LLM Agents, Multi-Agent Systems, RAG System, Model Fine-tuning, MCP/Tool Calling, Agent Memory Systems, Prompt Engineering, AI Agent Execution Safety.</li>
+            <li><strong>Languages:</strong> Python (Expert), Java, SQL, JavaScript, HTML/CSS.</li>
+            <li><strong>Frameworks &amp; Tools:</strong> LangChain, OpenClaw, CrewAI, React, SpringBoot, REST APIs, Threading, Linux, CUDA, PyTorch.</li>
+            <li><strong>Data &amp; Databases:</strong> Multi-GPU Deployment, Logging, Task Scheduling, Relational/Vector Databases.</li>
           </ul>
-        </article>
+        </div>
+      </section>
 
-        <article class="card full" id="experience">
-          <h2>Experience</h2>
-          <div class="timeline">
-            <div class="item">
-              <div class="top">
-                <div class="role">AI Agent Engineer</div>
-                <div class="time">Current</div>
-              </div>
-              <div class="place">Alibaba Group</div>
-              <div class="small">Working on practical AI systems and product-facing agent experiences.</div>
-            </div>
-            <div class="item">
-              <div class="top">
-                <div class="role">Technical Project Work</div>
-                <div class="time">Prior work</div>
-              </div>
-              <div class="place">Research + engineering initiatives</div>
-              <div class="small">Prototype-heavy work around retrieval, automation, and model-assisted workflows.</div>
-            </div>
-          </div>
-        </article>
-
-        <article class="card full" id="projects">
-          <h2>Selected Projects</h2>
-          <div class="project-grid">
-            <div class="project">
-              <h3>Agent Workflow Stack</h3>
-              <p>
-                A modular framework for chaining LLM calls, tools, and verification steps into a
-                reliable task flow.
-              </p>
-            </div>
-            <div class="project">
-              <h3>Retrieval-First Assistant</h3>
-              <p>
-                A grounded assistant design that prioritizes source-backed answers and lower hallucination risk.
-              </p>
-            </div>
-            <div class="project">
-              <h3>Demo-to-Product Toolkit</h3>
-              <p>
-                A repeatable way to turn quick prototypes into polished, shippable product experiences.
-              </p>
-            </div>
-          </div>
-        </article>
-
-        <article class="card" id="writing">
-          <h2>Writing</h2>
-          <p>
-            Blog content is usually where I explain what I’m building, what tradeoffs matter, and how
-            to make AI systems more useful for real users.
-          </p>
+      <section class="section" id="experience">
+        <h2>Professional Experience</h2>
+        <div class="content">
+          <h3><strong>Alibaba Group</strong> | <em>Applied AI Engineer</em> | Dec 2025 – Present</h3>
           <ul>
-            <li>Practical notes on agent design</li>
-            <li>Thoughts on prompting and evaluation</li>
-            <li>Product lessons from building with LLMs</li>
+            <li><strong>Production Infrastructure:</strong> Engineered core full-stack AI agent infrastructure for Alibaba Wukong and Gears AI, deploying reusable frameworks that accelerated multi-business integration across Taobao and Tmall platforms.</li>
+            <li><strong>System Design:</strong> Architected and implemented critical self-evolving agent modules, including advanced memory systems, skill platforms, and automated safety guardrails.</li>
+            <li><strong>Scale &amp; Impact:</strong> Successfully launched large-scale AI agent systems serving <strong>10,000+ active users</strong>, driving a <strong>200%+ increase</strong> in internal operational efficiency.</li>
           </ul>
-        </article>
 
-        <article class="card" id="contact">
-          <h2>Contact</h2>
-          <p>If you want to reach me quickly, the safest placeholders are below until the live site is restored.</p>
-          <div class="links">
-            <a class="link" href="mailto:haoyi.li@example.com">Email</a>
-            <a class="link" href="#">GitHub</a>
-            <a class="link" href="#">LinkedIn</a>
-          </div>
-        </article>
+          <h3><strong>ZTE Corporation</strong> | <em>Applied AI Engineer</em> | Aug 2025 – Dec 2025</h3>
+          <ul>
+            <li><strong>Architecture &amp; Leadership:</strong> Led the end-to-end development and production deployment of an enterprise-grade AI solution for high-stakes security operations.</li>
+            <li><strong>Multi-Agent Orchestration:</strong> Designed complex multi-agent execution frameworks featuring optimized task decomposition, dynamic memory management, and cross-agent collaboration mechanisms.</li>
+            <li><strong>Infrastructure &amp; Compute:</strong> Built and optimized high-performance GPU environments on Linux using CUDA and PyTorch; developed robust workflows for multi-GPU deployment and LLM fine-tuning.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="publications">
+        <h2>Publications</h2>
+        <div class="content">
+          <ul>
+            <li><strong>SPADE: Structured Prompting Augmentation for Dialogue Enhancement in Machine-Generated Text Detection</strong><br />
+              <em>First Co-Author</em>, <strong>ACL 2025</strong> | <a href="https://aclanthology.org/2025.llmsec-1.11/" target="_blank" rel="noreferrer">Paper Link</a>
+            </li>
+            <li><strong>EMMM, Explain Me My Model! Explainable Machine Generated Text Detection in Dialogues</strong><br />
+              <em>First Co-Author</em>, <strong>pre-print</strong> | <a href="https://arxiv.org/abs/2508.18715" target="_blank" rel="noreferrer">Paper Link</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="education">
+        <h2>Education</h2>
+        <div class="content">
+          <h3><strong>The University of Melbourne</strong></h3>
+          <ul>
+            <li><strong>Master of Data Science</strong> | <em>Mar 2024 – Jul 2025</em>
+              <ul>
+                <li><strong>Academic Excellence:</strong> <strong>GPA Top 1%</strong>, Dean’s Honour List (2025).</li>
+              </ul>
+            </li>
+            <li><strong>Bachelor of Science – Data Science</strong> | <em>Mar 2021 – Dec 2023</em>
+              <ul>
+                <li><strong>Academic Excellence:</strong> <strong>GPA Top 3%</strong>, Dean’s Honour List (2021).</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="languages">
+        <h2>Languages &amp; Interests</h2>
+        <div class="content">
+          <ul>
+            <li><strong>Languages:</strong> Mandarin (Native), English (Fluent / IELTS 7 Eqv.), Japanese (Conversational / N3 Eqv.).</li>
+            <li><strong>Interests:</strong> Bouldering.</li>
+          </ul>
+        </div>
       </section>
 
       <div class="footer">
-        Static fallback page active while the React deployment is being repaired.
+        Static fallback page with your resume content, kept readable for recruiting.
       </div>
     </main>
   </body>
