@@ -3,12 +3,197 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Haoyi Li – AI Agent Engineer</title>
-    <meta name="description" content="Technical webpage for Haoyi Li, AI Agent Engineer at Alibaba Group." />
-    <script type="module" src="/src/main.jsx"></script>
+    <title>Haoyi Li - AI Agent Engineer</title>
+    <meta
+      name="description"
+      content="Technical webpage for Haoyi Li, AI Agent Engineer at Alibaba Group."
+    />
+    <style>
+      :root {
+        --bg: #0b1020;
+        --panel: rgba(15, 23, 42, 0.82);
+        --panel-border: rgba(148, 163, 184, 0.18);
+        --text: #e5eefb;
+        --muted: #a8b3c7;
+        --accent: #7dd3fc;
+        --accent-2: #c4b5fd;
+      }
+
+      * { box-sizing: border-box; }
+      html, body { margin: 0; min-height: 100%; }
+      body {
+        font-family: Inter, "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(125, 211, 252, 0.16), transparent 28%),
+          radial-gradient(circle at 80% 10%, rgba(196, 181, 253, 0.14), transparent 24%),
+          linear-gradient(180deg, #060816 0%, #0b1020 42%, #0f172a 100%);
+      }
+
+      .wrap {
+        width: min(1080px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 32px 0 56px;
+      }
+
+      .hero {
+        display: grid;
+        gap: 20px;
+        padding: 28px;
+        border: 1px solid var(--panel-border);
+        border-radius: 28px;
+        background: var(--panel);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 22px 70px rgba(0, 0, 0, 0.28);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(40px, 8vw, 72px);
+        line-height: 0.95;
+      }
+
+      .lead {
+        margin: 0;
+        max-width: 760px;
+        font-size: 18px;
+        line-height: 1.7;
+        color: var(--muted);
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .chip {
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(125, 211, 252, 0.18);
+        background: rgba(15, 23, 42, 0.52);
+        color: var(--text);
+        text-decoration: none;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 18px;
+        margin-top: 18px;
+      }
+
+      .card {
+        grid-column: span 6;
+        padding: 22px;
+        border-radius: 22px;
+        border: 1px solid var(--panel-border);
+        background: rgba(15, 23, 42, 0.72);
+      }
+
+      .card h2 {
+        margin: 0 0 10px;
+        font-size: 20px;
+      }
+
+      .card p, .card li {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .card ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+
+      .full { grid-column: 1 / -1; }
+
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 10px;
+      }
+
+      .links a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .footer {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 14px;
+        text-align: center;
+      }
+
+      @media (max-width: 760px) {
+        .card { grid-column: 1 / -1; }
+        .hero { padding: 22px; }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <main class="wrap">
+      <section class="hero">
+        <div class="eyebrow">AI Agent Engineer</div>
+        <h1>Haoyi Li</h1>
+        <p class="lead">
+          I build practical AI systems and agent workflows with a focus on product impact,
+          reliability, and developer experience. This page is a stable fallback while the full
+          app deployment is being fixed.
+        </p>
+        <div class="chips">
+          <span class="chip">Agent Engineering</span>
+          <span class="chip">LLM Systems</span>
+          <span class="chip">RAG</span>
+          <span class="chip">Product Prototyping</span>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>What I do</h2>
+          <ul>
+            <li>Design and ship AI workflows that help teams move faster.</li>
+            <li>Build reliable interfaces around LLMs and agentic tooling.</li>
+            <li>Translate research ideas into useful product experiences.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Current focus</h2>
+          <ul>
+            <li>Agent orchestration and evaluation</li>
+            <li>Long-context retrieval and memory</li>
+            <li>UX that makes AI systems feel trustworthy</li>
+          </ul>
+        </article>
+
+        <article class="card full">
+          <h2>Links</h2>
+          <p>If you want the full interactive version, the deployment is being repaired now.</p>
+          <div class="links">
+            <a href="mailto:haoyi.li@example.com">Email</a>
+            <a href="#">GitHub</a>
+            <a href="#">LinkedIn</a>
+          </div>
+        </article>
+      </section>
+
+      <div class="footer">
+        If you need the full React version restored, I can switch it back once deployment is stable.
+      </div>
+    </main>
   </body>
 </html>
-
