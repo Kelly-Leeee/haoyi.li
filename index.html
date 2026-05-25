@@ -3,87 +3,173 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Haoyi Li - AI Agent Engineer</title>
+    <title>Haoyi Li – AI Agent Engineer</title>
     <meta
       name="description"
       content="Technical webpage for Haoyi Li, AI Agent Engineer at Alibaba Group."
     />
     <style>
       :root {
-        --bg: #0b1020;
-        --panel: rgba(15, 23, 42, 0.82);
-        --panel-border: rgba(148, 163, 184, 0.18);
-        --text: #e5eefb;
-        --muted: #a8b3c7;
-        --accent: #7dd3fc;
-        --accent-2: #c4b5fd;
+        --bg: #0a0f1f;
+        --bg-2: #10192f;
+        --panel: rgba(17, 24, 39, 0.72);
+        --panel-2: rgba(15, 23, 42, 0.88);
+        --border: rgba(148, 163, 184, 0.16);
+        --text: #ecf4ff;
+        --muted: #aeb9cb;
+        --accent: #8be9fd;
+        --accent-2: #f9a8d4;
+        --accent-3: #c4b5fd;
+        --shadow: 0 28px 90px rgba(0, 0, 0, 0.35);
       }
 
       * { box-sizing: border-box; }
-      html, body { margin: 0; min-height: 100%; }
+      html { scroll-behavior: smooth; }
       body {
-        font-family: Inter, "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        margin: 0;
         color: var(--text);
         background:
-          radial-gradient(circle at top left, rgba(125, 211, 252, 0.16), transparent 28%),
-          radial-gradient(circle at 80% 10%, rgba(196, 181, 253, 0.14), transparent 24%),
-          linear-gradient(180deg, #060816 0%, #0b1020 42%, #0f172a 100%);
+          radial-gradient(circle at 18% 20%, rgba(139, 233, 253, 0.13), transparent 26%),
+          radial-gradient(circle at 85% 10%, rgba(196, 181, 253, 0.13), transparent 24%),
+          radial-gradient(circle at 70% 72%, rgba(249, 168, 212, 0.11), transparent 22%),
+          linear-gradient(180deg, #050816 0%, var(--bg) 46%, #09111f 100%);
+        font-family: Inter, "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       }
 
+      a { color: inherit; }
       .wrap {
-        width: min(1080px, calc(100% - 32px));
+        width: min(1140px, calc(100% - 32px));
         margin: 0 auto;
-        padding: 32px 0 56px;
+        padding: 26px 0 60px;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 18px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .nav a {
+        text-decoration: none;
+        color: var(--muted);
       }
 
       .hero {
-        display: grid;
-        gap: 20px;
-        padding: 28px;
-        border: 1px solid var(--panel-border);
-        border-radius: 28px;
-        background: var(--panel);
-        backdrop-filter: blur(14px);
-        box-shadow: 0 22px 70px rgba(0, 0, 0, 0.28);
+        position: relative;
+        overflow: hidden;
+        padding: 36px;
+        border: 1px solid var(--border);
+        border-radius: 30px;
+        background: linear-gradient(180deg, rgba(15, 23, 42, 0.82), rgba(10, 15, 31, 0.86));
+        box-shadow: var(--shadow);
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: auto -10% -30% auto;
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(139, 233, 253, 0.18), transparent 68%);
+        pointer-events: none;
       }
 
       .eyebrow {
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        font-size: 13px;
-        letter-spacing: 0.18em;
+        letter-spacing: 0.22em;
         text-transform: uppercase;
+        font-size: 12px;
         color: var(--accent);
       }
 
-      h1 {
-        margin: 0;
-        font-size: clamp(40px, 8vw, 72px);
-        line-height: 0.95;
+      .eyebrow::before {
+        content: "";
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent-3));
+        box-shadow: 0 0 22px rgba(139, 233, 253, 0.9);
       }
 
-      .lead {
+      h1 {
+        margin: 14px 0 10px;
+        font-size: clamp(44px, 8vw, 80px);
+        line-height: 0.94;
+        letter-spacing: -0.05em;
+      }
+
+      .subtitle {
+        max-width: 820px;
         margin: 0;
-        max-width: 760px;
         font-size: 18px;
-        line-height: 1.7;
+        line-height: 1.75;
         color: var(--muted);
       }
 
-      .chips {
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.3fr 0.9fr;
+        gap: 18px;
+        margin-top: 26px;
+      }
+
+      .panel {
+        padding: 20px;
+        border-radius: 22px;
+        border: 1px solid var(--border);
+        background: rgba(15, 23, 42, 0.6);
+      }
+
+      .tags {
         display: flex;
         flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .tag {
+        padding: 9px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(139, 233, 253, 0.2);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--text);
+        font-size: 14px;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         gap: 12px;
       }
 
-      .chip {
-        padding: 10px 14px;
-        border-radius: 999px;
-        border: 1px solid rgba(125, 211, 252, 0.18);
-        background: rgba(15, 23, 42, 0.52);
-        color: var(--text);
-        text-decoration: none;
+      .stat {
+        padding: 14px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .stat b {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 22px;
+      }
+
+      .stat span {
+        color: var(--muted);
+        font-size: 13px;
       }
 
       .grid {
@@ -97,102 +183,263 @@
         grid-column: span 6;
         padding: 22px;
         border-radius: 22px;
-        border: 1px solid var(--panel-border);
-        background: rgba(15, 23, 42, 0.72);
+        border: 1px solid var(--border);
+        background: var(--panel);
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
       }
 
+      .card.full { grid-column: 1 / -1; }
       .card h2 {
-        margin: 0 0 10px;
-        font-size: 20px;
+        margin: 0 0 12px;
+        font-size: 22px;
       }
-
       .card p, .card li {
         color: var(--muted);
-        line-height: 1.7;
+        line-height: 1.75;
       }
-
       .card ul {
         margin: 0;
         padding-left: 18px;
       }
 
-      .full { grid-column: 1 / -1; }
+      .timeline {
+        display: grid;
+        gap: 14px;
+      }
+
+      .item {
+        padding: 16px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .item .top {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 6px;
+      }
+
+      .item .role {
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .item .place, .item .time {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+
+      .project {
+        padding: 18px;
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        min-height: 170px;
+      }
+
+      .project h3 {
+        margin: 0 0 8px;
+        font-size: 17px;
+      }
+
+      .project p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
 
       .links {
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
-        margin-top: 10px;
+        margin-top: 8px;
       }
 
-      .links a {
-        color: var(--accent);
+      .link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 14px;
+        border-radius: 12px;
         text-decoration: none;
+        border: 1px solid rgba(139, 233, 253, 0.18);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .small {
+        font-size: 14px;
+        color: var(--muted);
       }
 
       .footer {
         margin-top: 18px;
+        padding: 16px 4px 0;
+        text-align: center;
         color: var(--muted);
         font-size: 14px;
-        text-align: center;
       }
 
-      @media (max-width: 760px) {
+      @media (max-width: 900px) {
+        .hero-grid,
+        .project-grid {
+          grid-template-columns: 1fr;
+        }
         .card { grid-column: 1 / -1; }
-        .hero { padding: 22px; }
+        .stats { grid-template-columns: 1fr; }
+        .hero { padding: 24px; }
       }
     </style>
   </head>
   <body>
     <main class="wrap">
+      <div class="topbar">
+        <div>Haoyi Li</div>
+        <nav class="nav">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#writing">Writing</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+
       <section class="hero">
-        <div class="eyebrow">AI Agent Engineer</div>
-        <h1>Haoyi Li</h1>
-        <p class="lead">
-          I build practical AI systems and agent workflows with a focus on product impact,
-          reliability, and developer experience. This page is a stable fallback while the full
-          app deployment is being fixed.
+        <div class="eyebrow">AI Agent Engineer at Alibaba Group</div>
+        <h1>Building practical AI systems that feel fast, useful, and trustworthy.</h1>
+        <p class="subtitle">
+          I design and ship agent workflows, LLM-powered product experiences, and retrieval systems
+          with a strong focus on reliability, usability, and real-world impact. This static page is
+          an emergency fallback that mirrors the structure of the React site so the page stays
+          visible even if the app bundle breaks.
         </p>
-        <div class="chips">
-          <span class="chip">Agent Engineering</span>
-          <span class="chip">LLM Systems</span>
-          <span class="chip">RAG</span>
-          <span class="chip">Product Prototyping</span>
+
+        <div class="hero-grid">
+          <div class="panel">
+            <div class="small" style="margin-bottom: 10px;">Core strengths</div>
+            <div class="tags">
+              <span class="tag">Agent Engineering</span>
+              <span class="tag">LLM Product UX</span>
+              <span class="tag">RAG Systems</span>
+              <span class="tag">Prompt Design</span>
+              <span class="tag">Evaluation</span>
+              <span class="tag">Workflow Automation</span>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="stats">
+              <div class="stat"><b>AI</b><span>Product-focused systems</span></div>
+              <div class="stat"><b>Agent</b><span>Orchestration & tooling</span></div>
+              <div class="stat"><b>Build</b><span>From idea to demo</span></div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="grid">
+      <section class="grid" id="about">
         <article class="card">
-          <h2>What I do</h2>
-          <ul>
-            <li>Design and ship AI workflows that help teams move faster.</li>
-            <li>Build reliable interfaces around LLMs and agentic tooling.</li>
-            <li>Translate research ideas into useful product experiences.</li>
-          </ul>
+          <h2>About</h2>
+          <p>
+            I work at the intersection of product, engineering, and applied AI. My goal is to turn
+            model capabilities into tools people can actually rely on in everyday work.
+          </p>
+          <p>
+            I care a lot about clear interfaces, predictable behavior, and reducing the friction
+            between a user’s intent and the final result.
+          </p>
         </article>
 
         <article class="card">
-          <h2>Current focus</h2>
+          <h2>What I focus on</h2>
           <ul>
-            <li>Agent orchestration and evaluation</li>
-            <li>Long-context retrieval and memory</li>
-            <li>UX that makes AI systems feel trustworthy</li>
+            <li>Designing agent loops that can act, check, and recover cleanly.</li>
+            <li>Building retrieval flows that are grounded and easy to debug.</li>
+            <li>Creating lightweight demos that communicate technical ideas well.</li>
+            <li>Improving reliability with evaluation, guardrails, and structured prompts.</li>
           </ul>
         </article>
 
-        <article class="card full">
-          <h2>Links</h2>
-          <p>If you want the full interactive version, the deployment is being repaired now.</p>
+        <article class="card full" id="experience">
+          <h2>Experience</h2>
+          <div class="timeline">
+            <div class="item">
+              <div class="top">
+                <div class="role">AI Agent Engineer</div>
+                <div class="time">Current</div>
+              </div>
+              <div class="place">Alibaba Group</div>
+              <div class="small">Working on practical AI systems and product-facing agent experiences.</div>
+            </div>
+            <div class="item">
+              <div class="top">
+                <div class="role">Technical Project Work</div>
+                <div class="time">Prior work</div>
+              </div>
+              <div class="place">Research + engineering initiatives</div>
+              <div class="small">Prototype-heavy work around retrieval, automation, and model-assisted workflows.</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card full" id="projects">
+          <h2>Selected Projects</h2>
+          <div class="project-grid">
+            <div class="project">
+              <h3>Agent Workflow Stack</h3>
+              <p>
+                A modular framework for chaining LLM calls, tools, and verification steps into a
+                reliable task flow.
+              </p>
+            </div>
+            <div class="project">
+              <h3>Retrieval-First Assistant</h3>
+              <p>
+                A grounded assistant design that prioritizes source-backed answers and lower hallucination risk.
+              </p>
+            </div>
+            <div class="project">
+              <h3>Demo-to-Product Toolkit</h3>
+              <p>
+                A repeatable way to turn quick prototypes into polished, shippable product experiences.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" id="writing">
+          <h2>Writing</h2>
+          <p>
+            Blog content is usually where I explain what I’m building, what tradeoffs matter, and how
+            to make AI systems more useful for real users.
+          </p>
+          <ul>
+            <li>Practical notes on agent design</li>
+            <li>Thoughts on prompting and evaluation</li>
+            <li>Product lessons from building with LLMs</li>
+          </ul>
+        </article>
+
+        <article class="card" id="contact">
+          <h2>Contact</h2>
+          <p>If you want to reach me quickly, the safest placeholders are below until the live site is restored.</p>
           <div class="links">
-            <a href="mailto:haoyi.li@example.com">Email</a>
-            <a href="#">GitHub</a>
-            <a href="#">LinkedIn</a>
+            <a class="link" href="mailto:haoyi.li@example.com">Email</a>
+            <a class="link" href="#">GitHub</a>
+            <a class="link" href="#">LinkedIn</a>
           </div>
         </article>
       </section>
 
       <div class="footer">
-        If you need the full React version restored, I can switch it back once deployment is stable.
+        Static fallback page active while the React deployment is being repaired.
       </div>
     </main>
   </body>
